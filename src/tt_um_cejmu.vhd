@@ -40,6 +40,13 @@ begin
         s => ripple_out(4 downto 0)
     );
 
+    matrix: entity work.matrix_mul(structure)
+    port map (
+        x => a,
+        y => b,
+        z => matrix_out
+    );
+
     wallace: entity work.wallace_tree(structure)
     port map (
         x => a,
