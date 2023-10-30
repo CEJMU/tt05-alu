@@ -27,7 +27,7 @@ module tb ();
     wire [7:0] uio_out;
     wire [7:0] uio_oe;
 
-    tt_um_alu tt_um_alu (
+    tt_um_cejmu tt_um_cejmu (
     // include power ports for the Gate Level test
     `ifdef GL_TEST
         .VPWR( 1'b1),
