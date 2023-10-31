@@ -20,43 +20,47 @@ yaml_version: 4
 #
 # Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
 documentation: 
-  author:       "Matthias Jung, Jonathan Hager, Philipp Wetzstein"      # Your name
+  author:       "CE JMU Wuerzburg"      # Your name
   title:        "4-Bit ALU"      # Project title
-  language:     "Verilog" # other examples include Verilog, Amaranth, VHDL, etc
-  description:  ""      # Short description of what your project does
+  language:     "VHDL" # other examples include Verilog, Amaranth, VHDL, etc
+  description:  "A simple 4-Bit ALU which contains two types of adders and multipliers"      # Short description of what your project does
 
 # Longer description of how the project works. You can use standard markdown format.
   how_it_works: |
-      Explain how your project works
+      The ALU contains a ripple carry adder, a conditional lookahead adder, a matrix multiplier and a wallace-tree. Everything is implemented fully combinational. A 2-bit opcode is used to select the component.
 
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test:  |
-      Explain how to test your project
+    No clock is required. The first 4 input bits a[3...0] form the first operand, the last 4 input bits b[3...0] form the second operand. The bidirectional input bits 1 and 0 are used to select the component, which maps its output to the result s:
+    + 00: ripple carry adder
+    + 01: conditional lookahead adder
+    + 10: matrix multiplier
+    + 11: wallace-tree
 
 # A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
   inputs:               
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
+    - a[0]
+    - a[1]
+    - a[2]
+    - a[3]
+    - b[0]
+    - b[1]
+    - b[2]
+    - b[3]
 # A description of what the outputs do (e.g. status LED, SPI MISO, etc)
   outputs:
-    - segment a
-    - segment b
-    - segment c
-    - segment d
-    - segment e
-    - segment f
-    - segment g
-    - dot
+    - s[0]
+    - s[1]
+    - s[2]
+    - s[3]
+    - s[4]
+    - s[5]
+    - s[6]
+    - s[7]
 # A description of what the bidirectional I/O pins do (e.g. I2C SDA, I2C SCL, etc)
   bidirectional:
-    - none
-    - none
+    - opcode[0]
+    - opcode[1]
     - none
     - none
     - none
@@ -65,9 +69,9 @@ documentation:
     - none
 
 # The following fields are optional
-  tag:          ""      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  tag:          "alu, combinational, 4-bit, adder, multiplier"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
   external_hw:  ""      # Describe any external hardware needed
-  discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  discord:      "myzinsky"      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
   doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
   clock_hz:     0       # Clock frequency in Hz (if required)
   picture:      "picture.png" # relative path to a picture in your repository (must be 512kb or less)
