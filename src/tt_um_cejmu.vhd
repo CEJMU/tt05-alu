@@ -19,7 +19,6 @@ architecture rtl of tt_um_cejmu is
     alias a : std_logic_vector(3 downto 0) is ui_in(3 downto 0);
     alias b : std_logic_vector(3 downto 0) is ui_in(7 downto 4);
 
-    -- NOTE: uio_in könnte schlecht sein
     alias opcode : std_logic_vector(1 downto 0) is uio_in(1 downto 0);
 
     signal ripple_out : std_logic_vector(7 downto 0);
@@ -29,9 +28,7 @@ architecture rtl of tt_um_cejmu is
 
 begin
 
-    -- NOTE: Könnte etwas kaputt machen
-    uio_out <= (others => '0');
-    uio_oe <= (others => '0');
+    uio_oe <= "00000000";
     ripple_out(7 downto 5) <= "000";
     cla_out(7 downto 5) <= "000";
 
