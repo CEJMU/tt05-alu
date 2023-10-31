@@ -29,15 +29,24 @@ architecture rtl of tt_um_cejmu is
 
 begin
 
+    -- NOTE: Könnte etwas kaputt machen
     uio_out <= (others => '0');
     uio_oe <= (others => '0');
     ripple_out(7 downto 5) <= "000";
+    cla_out(7 downto 5) <= "000";
 
     adder: entity work.ripple_carry(rtl)
     port map (
         a => a,
         b => b,
         s => ripple_out(4 downto 0)
+    );
+
+    cla: entity work.cla(rtl)
+    port map (
+        x => a,
+        y => b,
+        z => cla_out(4 downto 0)
     );
 
     matrix: entity work.matrix_mul(structure)
@@ -54,17 +63,9 @@ begin
         z => wallace_out
     );
 
-    -- TODO: Reset
-    process(clk) begin
-        if rising_edge(clk) then
-            with opcode select
-            uo_out <=
-                ripple_out when "00",
-                cla_out when "01",
-                matrix_out when "10",
-                wallace_out when "11",
-                (others => '0') when others;
-        end if;
-    end process;
+    uo_out <= ripple_out when opcode = "00"
+                else cla_out when opcode = "01"
+                else matrix_out when opcode = "10"
+                else wallace_out;
 
 end architecture;

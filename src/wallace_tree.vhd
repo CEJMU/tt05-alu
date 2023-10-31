@@ -83,10 +83,10 @@ begin
     vec_2 <= stage_6(6) & stage_6(4) & stage_6(2) & stage_6(0);
     
     
-    ripple_carry: entity work.ripple_carry(rtl)
+    cla_adder: entity work.cla(rtl)
     port map (
-        a => vec_1,
-        b => vec_2,
-        s => z(7 downto 3)
+        x => vec_1,
+        y => vec_2,
+        z => z(7 downto 3)
     );
 end architecture structure;
