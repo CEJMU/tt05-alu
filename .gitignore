@@ -9,3 +9,8 @@ src/__pycache__/
 src/__tinytapeout
 src/results.xml
 src/user_config.tcl
+picture.aux
+picture.fdb_latexmk
+picture.fls
+picture.log
+picture.pdf
