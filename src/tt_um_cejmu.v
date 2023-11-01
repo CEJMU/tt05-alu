@@ -419,7 +419,6 @@ module tt_um_cejmu(ui_in, uio_in, ena, clk, rst_n, uo_out, uio_out, uio_oe);
   assign matrix_out = _3_;
   assign wallace_out = _4_;
   assign uo_out = _6_;
-  assign uio_out = 8'hzz;
   assign uio_oe = 8'h00;
 endmodule
 

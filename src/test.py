@@ -16,7 +16,7 @@ async def test_ripple_carry(dut):
     for i in range(256):
         dut._log.info(f"Testing input {i}")
         dut.ui_in.value = i
-        await ClockCycles(dut.clk, 10)
+        await ClockCycles(dut.clk, 2)
         binary = bin(i)[2:].zfill(8)
         a = binary[4:]
         b = binary[0:4]
@@ -37,7 +37,7 @@ async def test_cla(dut):
     for i in range(256):
         dut._log.info(f"Testing input {i}")
         dut.ui_in.value = i
-        await ClockCycles(dut.clk, 10)
+        await ClockCycles(dut.clk, 1)
         binary = bin(i)[2:].zfill(8)
         a = binary[4:]
         b = binary[0:4]
@@ -56,7 +56,7 @@ async def test_matrix(dut):
     for i in range(256):
         dut._log.info(f"Testing input {i}")
         dut.ui_in.value = i
-        await ClockCycles(dut.clk, 10)
+        await ClockCycles(dut.clk, 1)
         binary = bin(i)[2:].zfill(8)
         a = binary[4:]
         b = binary[0:4]
@@ -75,7 +75,7 @@ async def test_wallace(dut):
     for i in range(256):
         dut._log.info(f"Testing input {i}")
         dut.ui_in.value = i
-        await ClockCycles(dut.clk, 10)
+        await ClockCycles(dut.clk, 1)
         binary = bin(i)[2:].zfill(8)
         a = binary[4:]
         b = binary[0:4]
