@@ -19,7 +19,7 @@ architecture rtl of cla is
     
 begin
     
-    c(0) <= x(0) xor x(0);
+    c(0) <= '0';
     
     ge: for i in 1 to 4 generate
         gen(i) <= x(i-1) and y(i-1);
