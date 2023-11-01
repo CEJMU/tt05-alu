@@ -21,41 +21,91 @@ module cla(x, y, z);
   wire _17_;
   wire _18_;
   wire _19_;
-  wire [4:0] c;
-  wire [3:0] c1;
-  wire [3:0] gen;
-  wire [3:0] pro;
+  wire _20_;
+  wire _21_;
+  wire _22_;
+  wire _23_;
+  wire _24_;
+  wire _25_;
+  wire _26_;
+  wire _27_;
+  wire _28_;
+  wire _29_;
+  wire _30_;
+  wire _31_;
+  wire _32_;
+  wire _33_;
+  wire _34_;
+  wire _35_;
+  wire _36_;
+  wire _37_;
+  wire _38_;
+  wire _39_;
+  wire _40_;
+  wire _41_;
+  wire _42_;
+  wire _43_;
+  wire _44_;
+  wire _45_;
+  wire _46_;
+  wire _47_;
+  wire [3:0] c;
   input [3:0] x;
   wire [3:0] x;
   input [3:0] y;
   wire [3:0] y;
   output [4:0] z;
   wire [4:0] z;
-  assign _18_ = pro[2] ^ c[2];
-  assign _19_ = pro[3] ^ c[3];
+  assign _25_ = x[3] ^ y[3];
+  assign _26_ = x[2] & y[2];
+  assign _27_ = x[2] ^ y[2];
+  assign _28_ = x[1] & y[1];
+  assign _29_ = x[1] ^ y[1];
+  assign _30_ = x[0] & y[0];
+  assign _31_ = x[0] ^ y[0];
+  assign _32_ = _31_ & 1'h0;
+  assign _33_ = _30_ | _32_;
+  assign _34_ = _29_ & _33_;
+  assign _35_ = _28_ | _34_;
+  assign _36_ = _27_ & _35_;
+  assign _37_ = _26_ | _36_;
+  assign _38_ = _25_ & _37_;
+  assign _39_ = _24_ | _38_;
+  assign _40_ = x[0] ^ y[0];
+  assign _41_ = _40_ ^ 1'h0;
+  assign _42_ = x[1] ^ y[1];
+  assign _43_ = _42_ ^ c[0];
+  assign _44_ = x[2] ^ y[2];
+  assign _45_ = _44_ ^ c[1];
+  assign _46_ = x[3] ^ y[3];
+  assign _47_ = _46_ ^ c[2];
   assign _00_ = x[0] & y[0];
-  assign _01_ = x[1] & y[1];
-  assign _02_ = x[2] & y[2];
-  assign _03_ = x[3] & y[3];
-  assign _04_ = x[0] ^ y[0];
+  assign _01_ = x[0] ^ y[0];
+  assign _02_ = _01_ & 1'h0;
+  assign _03_ = _00_ | _02_;
+  assign _04_ = x[1] & y[1];
   assign _05_ = x[1] ^ y[1];
-  assign _06_ = x[2] ^ y[2];
-  assign _07_ = x[3] ^ y[3];
-  assign _08_ = pro[0] & c[0];
-  assign _09_ = pro[1] & c[1];
-  assign _10_ = pro[2] & c[2];
-  assign _11_ = pro[3] & c[3];
-  assign _12_ = gen[0] | c1[0];
-  assign _13_ = gen[1] | c1[1];
-  assign _14_ = gen[2] | c1[2];
-  assign _15_ = gen[3] | c1[3];
-  assign _16_ = pro[0] ^ c[0];
-  assign _17_ = pro[1] ^ c[1];
-  assign gen = { _03_, _02_, _01_, _00_ };
-  assign pro = { _07_, _06_, _05_, _04_ };
-  assign c = { _15_, _14_, _13_, _12_, 1'h0 };
-  assign c1 = { _11_, _10_, _09_, _08_ };
-  assign z = { c[4], _19_, _18_, _17_, _16_ };
+  assign _06_ = x[0] & y[0];
+  assign _07_ = x[0] ^ y[0];
+  assign _08_ = _07_ & 1'h0;
+  assign _09_ = _06_ | _08_;
+  assign _10_ = _05_ & _09_;
+  assign _11_ = _04_ | _10_;
+  assign _12_ = x[2] & y[2];
+  assign _13_ = x[2] ^ y[2];
+  assign _14_ = x[1] & y[1];
+  assign _15_ = x[1] ^ y[1];
+  assign _16_ = x[0] & y[0];
+  assign _17_ = x[0] ^ y[0];
+  assign _18_ = _17_ & 1'h0;
+  assign _19_ = _16_ | _18_;
+  assign _20_ = _15_ & _19_;
+  assign _21_ = _14_ | _20_;
+  assign _22_ = _13_ & _21_;
+  assign _23_ = _12_ | _22_;
+  assign _24_ = x[3] & y[3];
+  assign c = { _39_, _23_, _11_, _03_ };
+  assign z = { c[3], _47_, _45_, _43_, _41_ };
 endmodule
 
 module full_adder(a, b, ci, s, co);
@@ -198,112 +248,112 @@ module matrix_mul(x, y, z);
   wire [3:0] y;
   output [7:0] z;
   wire [7:0] z;
-  assign _00_ = x[0] & y[0];
-  assign _01_ = x[1] & y[0];
-  assign _02_ = x[2] & y[0];
-  assign _03_ = x[3] & y[0];
-  assign _04_ = x[0] & y[1];
-  assign _05_ = x[1] & y[1];
-  assign _06_ = x[2] & y[1];
-  assign _07_ = x[3] & y[1];
-  assign _16_ = x[0] & y[2];
-  assign _17_ = x[1] & y[2];
-  assign _18_ = x[2] & y[2];
-  assign _19_ = x[3] & y[2];
-  assign _28_ = x[0] & y[3];
-  assign _29_ = x[1] & y[3];
-  assign _30_ = x[2] & y[3];
-  assign _31_ = x[3] & y[3];
+  assign _07_ = x[0] & y[0];
+  assign _08_ = x[1] & y[0];
+  assign _09_ = x[2] & y[0];
+  assign _10_ = x[3] & y[0];
+  assign _11_ = x[0] & y[1];
+  assign _12_ = x[1] & y[1];
+  assign _13_ = x[2] & y[1];
+  assign _14_ = x[3] & y[1];
+  assign _23_ = x[0] & y[2];
+  assign _24_ = x[1] & y[2];
+  assign _25_ = x[2] & y[2];
+  assign _26_ = x[3] & y[2];
+  assign _35_ = x[0] & y[3];
+  assign _36_ = x[1] & y[3];
+  assign _37_ = x[2] & y[3];
+  assign _38_ = x[3] & y[3];
   half_adder stage1_ha1 (
     .a(stage1[1]),
     .b(stage2[0]),
-    .co(_09_),
-    .s(_08_)
+    .co(_16_),
+    .s(_15_)
   );
   half_adder stage1_ha2 (
     .a(stage2[3]),
     .b(stage1_co[2]),
-    .co(_15_),
-    .s(_14_)
+    .co(_22_),
+    .s(_21_)
   );
   full_adder stage1_va1 (
     .a(stage1[2]),
     .b(stage2[1]),
     .ci(stage1_co[0]),
-    .co(_11_),
-    .s(_10_)
+    .co(_18_),
+    .s(_17_)
   );
   full_adder stage1_va2 (
     .a(stage1[3]),
     .b(stage2[2]),
     .ci(stage1_co[1]),
-    .co(_13_),
-    .s(_12_)
+    .co(_20_),
+    .s(_19_)
   );
   half_adder stage2_ha1 (
     .a(stage3[0]),
     .b(stage1_s[0]),
-    .co(_21_),
-    .s(_20_)
+    .co(_28_),
+    .s(_27_)
   );
   full_adder stage2_va1 (
     .a(stage3[1]),
     .b(stage1_s[1]),
     .ci(stage2_co[0]),
-    .co(_23_),
-    .s(_22_)
+    .co(_30_),
+    .s(_29_)
   );
   full_adder stage2_va2 (
     .a(stage3[2]),
     .b(stage1_s[2]),
     .ci(stage2_co[1]),
-    .co(_25_),
-    .s(_24_)
+    .co(_32_),
+    .s(_31_)
   );
   full_adder stage2_va3 (
     .a(stage3[3]),
     .b(stage1_co[3]),
     .ci(stage2_co[2]),
-    .co(_27_),
-    .s(_26_)
+    .co(_34_),
+    .s(_33_)
   );
   half_adder stage3_ha1 (
     .a(stage4[0]),
     .b(stage2_s[0]),
-    .co(_33_),
-    .s(_32_)
+    .co(_00_),
+    .s(_39_)
   );
   full_adder stage3_va1 (
     .a(stage4[1]),
     .b(stage2_s[1]),
     .ci(stage3_co[0]),
-    .co(_35_),
-    .s(_34_)
+    .co(_02_),
+    .s(_01_)
   );
   full_adder stage3_va2 (
     .a(stage4[2]),
     .b(stage2_s[2]),
     .ci(stage3_co[1]),
-    .co(_37_),
-    .s(_36_)
+    .co(_04_),
+    .s(_03_)
   );
   full_adder stage3_va3 (
     .a(stage4[3]),
     .b(stage2_co[3]),
     .ci(stage3_co[2]),
-    .co(_39_),
-    .s(_38_)
+    .co(_06_),
+    .s(_05_)
   );
-  assign stage1 = { _03_, _02_, _01_, _00_ };
-  assign stage2 = { _07_, _06_, _05_, _04_ };
-  assign stage3 = { _19_, _18_, _17_, _16_ };
-  assign stage4 = { _31_, _30_, _29_, _28_ };
-  assign stage1_s = { _14_, _12_, _10_ };
-  assign stage1_co = { _15_, _13_, _11_, _09_ };
-  assign stage2_s = { _26_, _24_, _22_ };
-  assign stage2_co = { _27_, _25_, _23_, _21_ };
-  assign stage3_co = { _37_, _35_, _33_ };
-  assign z = { _39_, _38_, _36_, _34_, _32_, _20_, _08_, stage1[0] };
+  assign stage1 = { _10_, _09_, _08_, _07_ };
+  assign stage2 = { _14_, _13_, _12_, _11_ };
+  assign stage3 = { _26_, _25_, _24_, _23_ };
+  assign stage4 = { _38_, _37_, _36_, _35_ };
+  assign stage1_s = { _21_, _19_, _17_ };
+  assign stage1_co = { _22_, _20_, _18_, _16_ };
+  assign stage2_s = { _33_, _31_, _29_ };
+  assign stage2_co = { _34_, _32_, _30_, _28_ };
+  assign stage3_co = { _04_, _02_, _00_ };
+  assign z = { _06_, _05_, _03_, _01_, _39_, _27_, _15_, stage1[0] };
 endmodule
 
 module ripple_carry(a, b, s);
@@ -435,7 +485,7 @@ module wallace_tree(x, y, z);
   wire _08_;
   wire _09_;
   wire _10_;
-  wire [4:0] _11_;
+  wire _11_;
   wire _12_;
   wire _13_;
   wire _14_;
@@ -456,23 +506,23 @@ module wallace_tree(x, y, z);
   wire _29_;
   wire _30_;
   wire _31_;
-  wire _32_;
-  wire \f1:280 ;
-  wire \f1:281 ;
-  wire \f2:289 ;
-  wire \f2:290 ;
-  wire \f3:298 ;
-  wire \f3:299 ;
-  wire \f4:307 ;
-  wire \f4:308 ;
-  wire \f5:316 ;
-  wire \f5:317 ;
-  wire \h1:324 ;
-  wire \h1:325 ;
-  wire \h2:332 ;
-  wire \h2:333 ;
-  wire \h3:340 ;
-  wire \h3:341 ;
+  wire [4:0] _32_;
+  wire \f1:323 ;
+  wire \f1:324 ;
+  wire \f2:332 ;
+  wire \f2:333 ;
+  wire \f3:341 ;
+  wire \f3:342 ;
+  wire \f4:350 ;
+  wire \f4:351 ;
+  wire \f5:359 ;
+  wire \f5:360 ;
+  wire \h1:367 ;
+  wire \h1:368 ;
+  wire \h2:375 ;
+  wire \h2:376 ;
+  wire \h3:383 ;
+  wire \h3:384 ;
   wire [3:0] stage_1;
   wire [3:0] stage_2;
   wire [3:0] stage_3;
@@ -487,99 +537,99 @@ module wallace_tree(x, y, z);
   wire [3:0] y;
   output [7:0] z;
   wire [7:0] z;
-  assign _12_ = x[0] & y[0];
-  assign _13_ = x[1] & y[0];
-  assign _14_ = x[2] & y[0];
-  assign _15_ = x[3] & y[0];
-  assign _16_ = x[0] & y[1];
-  assign _17_ = x[1] & y[1];
-  assign _18_ = x[2] & y[1];
-  assign _19_ = x[3] & y[1];
-  assign _20_ = x[0] & y[2];
-  assign _21_ = x[1] & y[2];
-  assign _22_ = x[2] & y[2];
-  assign _23_ = x[3] & y[2];
-  assign _24_ = x[0] & y[3];
-  assign _25_ = x[1] & y[3];
-  assign _26_ = x[2] & y[3];
-  assign _27_ = x[3] & y[3];
-  assign _11_ = { 1'h0, vec_1 } + { 1'h0, vec_2 };
+  assign _00_ = x[0] & y[0];
+  assign _01_ = x[1] & y[0];
+  assign _02_ = x[2] & y[0];
+  assign _03_ = x[3] & y[0];
+  assign _04_ = x[0] & y[1];
+  assign _05_ = x[1] & y[1];
+  assign _06_ = x[2] & y[1];
+  assign _07_ = x[3] & y[1];
+  assign _08_ = x[0] & y[2];
+  assign _09_ = x[1] & y[2];
+  assign _10_ = x[2] & y[2];
+  assign _11_ = x[3] & y[2];
+  assign _12_ = x[0] & y[3];
+  assign _13_ = x[1] & y[3];
+  assign _14_ = x[2] & y[3];
+  assign _15_ = x[3] & y[3];
+  assign _32_ = { 1'h0, vec_1 } + { 1'h0, vec_2 };
   full_adder f1 (
     .a(stage_1[2]),
     .b(stage_2[1]),
     .ci(stage_3[0]),
-    .co(_29_),
-    .s(_28_)
+    .co(_17_),
+    .s(_16_)
   );
   full_adder f2 (
     .a(stage_1[3]),
     .b(stage_2[2]),
     .ci(stage_3[1]),
-    .co(_31_),
-    .s(_30_)
+    .co(_19_),
+    .s(_18_)
   );
   full_adder f3 (
     .a(stage_5[3]),
     .b(stage_5[4]),
     .ci(stage_4[0]),
-    .co(_00_),
-    .s(_32_)
+    .co(_21_),
+    .s(_20_)
   );
   full_adder f4 (
     .a(stage_5[5]),
     .b(stage_5[6]),
     .ci(stage_4[1]),
-    .co(_02_),
-    .s(_01_)
+    .co(_23_),
+    .s(_22_)
   );
   full_adder f5 (
     .a(stage_5[7]),
     .b(stage_3[3]),
     .ci(stage_4[2]),
-    .co(_04_),
-    .s(_03_)
+    .co(_25_),
+    .s(_24_)
   );
   half_adder h1 (
     .a(stage_1[1]),
     .b(stage_2[0]),
-    .co(_06_),
-    .s(_05_)
+    .co(_27_),
+    .s(_26_)
   );
   half_adder h2 (
     .a(stage_2[3]),
     .b(stage_3[2]),
-    .co(_08_),
-    .s(_07_)
+    .co(_29_),
+    .s(_28_)
   );
   half_adder h3 (
     .a(stage_5[1]),
     .b(stage_5[2]),
-    .co(_10_),
-    .s(_09_)
+    .co(_31_),
+    .s(_30_)
   );
-  assign stage_1 = { _15_, _14_, _13_, _12_ };
-  assign stage_2 = { _19_, _18_, _17_, _16_ };
-  assign stage_3 = { _23_, _22_, _21_, _20_ };
-  assign stage_4 = { _27_, _26_, _25_, _24_ };
-  assign stage_5 = { \h2:333 , \h2:332 , \f2:290 , \f2:289 , \f1:281 , \f1:280 , \h1:325 , \h1:324  };
-  assign stage_6 = { stage_4[3], \f5:317 , \f5:316 , \f4:308 , \f4:307 , \f3:299 , \f3:298 , \h3:341  };
+  assign stage_1 = { _03_, _02_, _01_, _00_ };
+  assign stage_2 = { _07_, _06_, _05_, _04_ };
+  assign stage_3 = { _11_, _10_, _09_, _08_ };
+  assign stage_4 = { _15_, _14_, _13_, _12_ };
+  assign stage_5 = { \h2:376 , \h2:375 , \f2:333 , \f2:332 , \f1:324 , \f1:323 , \h1:368 , \h1:367  };
+  assign stage_6 = { stage_4[3], \f5:360 , \f5:359 , \f4:351 , \f4:350 , \f3:342 , \f3:341 , \h3:384  };
   assign vec_1 = { stage_6[7], stage_6[5], stage_6[3], stage_6[1] };
   assign vec_2 = { stage_6[6], stage_6[4], stage_6[2], stage_6[0] };
-  assign \f1:280  = _28_;
-  assign \f1:281  = _29_;
-  assign \f2:289  = _30_;
-  assign \f2:290  = _31_;
-  assign \f3:298  = _32_;
-  assign \f3:299  = _00_;
-  assign \f4:307  = _01_;
-  assign \f4:308  = _02_;
-  assign \f5:316  = _03_;
-  assign \f5:317  = _04_;
-  assign \h1:324  = _05_;
-  assign \h1:325  = _06_;
-  assign \h2:332  = _07_;
-  assign \h2:333  = _08_;
-  assign \h3:340  = _09_;
-  assign \h3:341  = _10_;
-  assign z = { _11_, \h3:340 , stage_5[0], stage_1[0] };
+  assign \f1:323  = _16_;
+  assign \f1:324  = _17_;
+  assign \f2:332  = _18_;
+  assign \f2:333  = _19_;
+  assign \f3:341  = _20_;
+  assign \f3:342  = _21_;
+  assign \f4:350  = _22_;
+  assign \f4:351  = _23_;
+  assign \f5:359  = _24_;
+  assign \f5:360  = _25_;
+  assign \h1:367  = _26_;
+  assign \h1:368  = _27_;
+  assign \h2:375  = _28_;
+  assign \h2:376  = _29_;
+  assign \h3:383  = _30_;
+  assign \h3:384  = _31_;
+  assign z = { _32_, \h3:383 , stage_5[0], stage_1[0] };
 endmodule
