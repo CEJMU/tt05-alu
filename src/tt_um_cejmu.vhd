@@ -21,10 +21,10 @@ architecture rtl of tt_um_cejmu is
 
     alias opcode : std_logic_vector(1 downto 0) is uio_in(1 downto 0);
 
-    signal ripple_out : std_logic_vector(7 downto 0);
-    signal cla_out : std_logic_vector(7 downto 0);
-    signal matrix_out : std_logic_vector(7 downto 0);
-    signal wallace_out : std_logic_vector(7 downto 0);
+    signal ripple_out : std_logic_vector(7 downto 0) := (others => '0');
+    signal cla_out : std_logic_vector(7 downto 0) := (others => '0');
+    signal matrix_out : std_logic_vector(7 downto 0) := (others => '0');
+    signal wallace_out : std_logic_vector(7 downto 0) := (others => '0');
 
 begin
 
