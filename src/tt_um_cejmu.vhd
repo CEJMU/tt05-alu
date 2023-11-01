@@ -26,7 +26,14 @@ architecture rtl of tt_um_cejmu is
     signal matrix_out : std_logic_vector(7 downto 0) := (others => '0');
     signal wallace_out : std_logic_vector(7 downto 0) := (others => '0');
 
+    signal dummy : std_logic_vector(7 downto 0);
+
 begin
+
+
+    dummy(7 downto 2) <= uio_in(7 downto 2);
+    dummy(1) <= ena;
+    dummy(0) <= clk;
 
     uio_out <= (others => '0');
     uio_oe <= "00000000";
