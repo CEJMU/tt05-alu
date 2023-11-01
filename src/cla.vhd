@@ -12,11 +12,11 @@ end entity cla;
 
 architecture rtl of cla is
     
-    signal gen: std_logic_vector(4 downto 1);
-    signal pro: std_logic_vector(4 downto 1);
-    signal c: std_logic_vector(4 downto 0);
-    signal s: std_logic_vector(4 downto 1);
-    signal c1: std_logic_vector(3 downto 0);
+    signal gen: std_logic_vector(4 downto 1) := (others => '0');
+    signal pro: std_logic_vector(4 downto 1) := (others => '0');
+    signal c: std_logic_vector(4 downto 0) := (others => '0');
+    signal s: std_logic_vector(4 downto 1) := (others => '0');
+    signal c1: std_logic_vector(3 downto 0) := (others => '0');
     
 begin
     
