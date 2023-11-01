@@ -503,10 +503,10 @@ module wallace_tree(x, y, z);
   assign _25_ = x[1] & y[3];
   assign _26_ = x[2] & y[3];
   assign _27_ = x[3] & y[3];
-  cla cla_adder (
-    .x(vec_1),
-    .y(vec_2),
-    .z(_11_)
+  ripple_carry cla_adder (
+    .a(vec_1),
+    .b(vec_2),
+    .s(_11_)
   );
   full_adder f1 (
     .a(stage_1[2]),
