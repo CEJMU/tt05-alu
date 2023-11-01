@@ -40,12 +40,12 @@ begin
         s => ripple_out(4 downto 0)
     );
 
-    --cla: entity work.cla(rtl)
-    --port map (
-    --    x => a,
-    --    y => b,
-    --    z => cla_out(4 downto 0)
-    --);
+    cla: entity work.cla(rtl)
+    port map (
+        x => a,
+        y => b,
+        z => cla_out(4 downto 0)
+    );
 
     matrix: entity work.matrix_mul(structure)
     port map (
@@ -61,7 +61,7 @@ begin
         z => wallace_out
     );
 
-    cla_out(4 downto 0) <= std_logic_vector(Unsigned('0' & a) + Unsigned('0' & b));
+    --cla_out(4 downto 0) <= std_logic_vector(Unsigned('0' & a) + Unsigned('0' & b));
 
 
     uo_out <= ripple_out when opcode = "00"
