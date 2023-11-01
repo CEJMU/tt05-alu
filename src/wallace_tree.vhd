@@ -82,13 +82,13 @@ begin
     vec_2 <= stage_6(6) & stage_6(4) & stage_6(2) & stage_6(0);
     
     
-    -- cla_adder: entity work.cla(rtl)
-    -- port map (
-    --     x => vec_1,
-    --     y => vec_2,
-    --     z => z(7 downto 3)
-    -- );
+    cla_adder: entity work.cla(rtl)
+     port map (
+         x => vec_1,
+         y => vec_2,
+         z => z(7 downto 3)
+     );
 
-    z(7 downto 3) <= std_logic_vector(Unsigned('0' & vec_1) + Unsigned('0' & vec_2));
+    -- z(7 downto 3) <= std_logic_vector(Unsigned('0' & vec_1) + Unsigned('0' & vec_2));
     
 end architecture structure;
