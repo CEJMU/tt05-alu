@@ -89,10 +89,6 @@ begin
     --     z => z(7 downto 3)
     -- );
 
-    cla_adder: entity work.ripple_carry(rtl)
-    port map (
-        a => vec_1,
-        b => vec_2,
-        s => z(7 downto 3)
-    );
+    z(7 downto 3) <= std_logic_vector(Unsigned('0' & vec_1) + Unsigned('0' & vec_2));
+    
 end architecture structure;
