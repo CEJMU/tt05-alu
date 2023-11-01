@@ -32,6 +32,7 @@ documentation:
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test:  |
     No clock is required. The first 4 input bits a[3...0] form the first operand, the last 4 input bits b[3...0] form the second operand. The bidirectional input bits 1 and 0 are used to select the component, which maps its output to the result s:
+
     + 00: ripple carry adder
     + 01: conditional lookahead adder
     + 10: matrix multiplier

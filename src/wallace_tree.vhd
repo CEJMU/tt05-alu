@@ -72,7 +72,6 @@ begin
     
     h1: half_adder port map(a=> stage_1(1), b=> stage_2(0), s=> stage_5(0),co=>stage_5(1));
     h2: half_adder port map(a=> stage_2(3), b=> stage_3(2), s=> stage_5(6),co=> stage_5(7));
-    
     h3: half_adder port map(a=> stage_5(1), b=> stage_5(2), s=> z(2),co=> stage_6(0));
     
     stage_6(7) <= stage_4(3);

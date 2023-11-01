@@ -19,10 +19,8 @@ architecture rtl of cla is
     
 begin
     
-    -- HACK: 
     c(0) <= x(0) xor x(0);
     
-
     ge: for i in 1 to 4 generate
         gen(i) <= x(i-1) and y(i-1);
     end generate;
@@ -43,15 +41,6 @@ begin
         z(i) <= s(i+1);
     end generate;  
     
-   -- z(0) <= s(1);
-   -- z(1) <= s(2);
-   -- z(2) <= s(3);
-   -- z(3) <= s(4);
-    
     z(4) <= c(4);
-    
-    
-    
-    
 
 end architecture rtl;
