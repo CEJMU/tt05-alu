@@ -28,6 +28,7 @@ architecture rtl of tt_um_cejmu is
 
 begin
 
+    uio_out <= (others => '0');
     uio_oe <= "00000000";
     ripple_out(7 downto 5) <= "000";
     cla_out(7 downto 5) <= "000";
