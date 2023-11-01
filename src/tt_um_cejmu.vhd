@@ -54,16 +54,16 @@ begin
         z => matrix_out
     );
 
-    wallace: entity work.wallace_tree(structure)
-    port map (
-        x => a,
-        y => b,
-        z => wallace_out
-    );
+    --wallace: entity work.wallace_tree(structure)
+    --port map (
+    --    x => a,
+    --    y => b,
+    --    z => wallace_out
+    --);
 
     uo_out <= ripple_out when opcode = "00"
                 else cla_out when opcode = "01"
                 else matrix_out when opcode = "10"
-                else wallace_out;
+                else "00000000";
 
 end architecture;
