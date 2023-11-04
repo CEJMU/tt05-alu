@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
 
-entity Multiplexer is
+entity multiplexer is
     port(
         a : in STD_LOGIC_VECTOR(7 downto 0);
         s0: in STD_LOGIC;
@@ -11,10 +11,10 @@ entity Multiplexer is
         
         y : out STD_LOGIC
     );
-end entity Multiplexer;
+end entity multiplexer;
 
 
-architecture rtl of Multiplexer is
+architecture rtl of multiplexer is
 
 begin
 

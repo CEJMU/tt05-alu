@@ -17,7 +17,7 @@ architecture rtl of four_bit_comparator is
  
     signal greaterv: STD_LOGIC_VECTOR(3 downto 0);
     signal smallerv: STD_LOGIC_VECTOR(3 downto 0);
-    signal equalv: STD_LOGIC_VECTOR(3 downto 0);
+    signal equalv: STD_LOGIC_VECTOR(2 downto 0);
     
     signal greater : STD_LOGIC;
     signal smaller : STD_LOGIC;

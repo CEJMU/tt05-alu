@@ -15,7 +15,7 @@ end entity barrel_shifter;
 
 architecture rtl of barrel_shifter is
     
-    COMPONENT Multiplexer IS
+    COMPONENT multiplexer IS
         port (
             a  : in STD_LOGIC_VECTOR(7 downto 0);
             s0 : in STD_LOGIC;
@@ -23,7 +23,7 @@ architecture rtl of barrel_shifter is
             d  : in STD_LOGIC;
             y  : out STD_LOGIC
         );
-    end component Multiplexer;
+    end component multiplexer;
     
     signal mul0v : STD_LOGIC_VECTOR(7 downto 0);
     signal mul1v : STD_LOGIC_VECTOR(7 downto 0);
@@ -40,10 +40,10 @@ begin
     
 
     
-    mul0 : Multiplexer port map(a => mul0v,s0 => y(0), s1 => y(1), d => y(2), y =>z(0));
-    mul1 : Multiplexer port map(a => mul1v,s0 => y(0), s1 => y(1), d => y(2), y =>z(1));
-    mul2 : Multiplexer port map(a => mul2v,s0 => y(0), s1 => y(1), d => y(2), y =>z(2));
-    mul3 : Multiplexer port map(a => mul3v,s0 => y(0), s1 => y(1), d => y(2), y =>z(3));
+    mul0 : multiplexer port map(a => mul0v,s0 => y(0), s1 => y(1), d => y(2), y =>z(0));
+    mul1 : multiplexer port map(a => mul1v,s0 => y(0), s1 => y(1), d => y(2), y =>z(1));
+    mul2 : multiplexer port map(a => mul2v,s0 => y(0), s1 => y(1), d => y(2), y =>z(2));
+    mul3 : multiplexer port map(a => mul3v,s0 => y(0), s1 => y(1), d => y(2), y =>z(3));
     
 
 end architecture rtl;
