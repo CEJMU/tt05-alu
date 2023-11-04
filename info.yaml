@@ -27,11 +27,11 @@ documentation:
 
 # Longer description of how the project works. You can use standard markdown format.
   how_it_works: |
-      The ALU contains a ripple carry adder, a carry lookahead adder, a matrix multiplier and a wallace-tree multiplier. Everything is implemented fully combinational. A 2-bit opcode is used to select the respective component.
+      The ALU contains a ripple carry adder, a carry lookahead adder, a matrix multiplier, a wallace-tree multiplier, comparator and a barrel-shifter. Everything is implemented fully combinational. A 3-bit opcode is used to select the respective component.
 
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test: |
-      No clock is required. The first 4 input bits a[3...0] form the first operand, the last 4 input bits b[3...0] form the second operand. The bidirectional input bits 0 and 1 are used as opcode to select the component, c.f. Figure above.
+      No clock is required. The first 4 input bits a[3...0] form the first operand, the last 4 input bits b[3...0] form the second operand. The bidirectional input bits 0, 1 and 2 are used as opcode to select the component, c.f. Figure above.
 
 # A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
   inputs:               
@@ -57,7 +57,7 @@ documentation:
   bidirectional:
     - opcode[0]
     - opcode[1]
-    - none
+    - opcode[2]
     - none
     - none
     - none
