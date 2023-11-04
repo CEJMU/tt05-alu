@@ -30,19 +30,18 @@
         \draw (C.bpin 12) -- ++(0.40,0) |- (A.rpin 1);
         %
         \draw (C.bpin  3) -| (A.bpin 3);
-        \draw (C.bpin  2) -| (A.bpin 2);
-        % \draw (C.bpin 63) -- ++(0,-0.25) -| (A.bpin 1);
-        \draw (C.bpin 1) -| (A.bpin 1);
+        \draw (C.bpin 63) -- ++(0,-0.75) -| (A.bpin 2);
+        \draw (C.bpin 62) -- ++(0,-0.50) -| (A.bpin 1);
         %
         \draw (C.bpin 50) node [anchor=north] () {\tiny \ttfamily Bottom View};
-        \draw (C.bpin  3) node [anchor=south west] () {\tiny \ttfamily uio[2]};
+        \draw (C.bpin  3) node [anchor=south west] () {\tiny \ttfamily uio[0]};
         \draw (C.bpin  4) node [anchor=south west] () {\tiny \ttfamily uo\_out[7]};
         \draw (C.bpin 12) node [anchor=north west] () {\tiny \ttfamily uo\_out[0]};
         \draw (C.bpin 14) node [anchor=south west] () {\tiny \ttfamily uo\_in[7]};
-        \draw (C.bpin 1) node [anchor=south west] () {\tiny \ttfamily uio[0]};
-        \draw (A.bpin 1) node [anchor=north, rotate=45] () {\tiny \ttfamily ~~~~~opcode[0]};
-        %\draw (A.bpin 2) node [anchor=south east, rotate=45, xshift=1cm] () {\tiny \ttfamily ~~~~~opcode[1]};
-        \draw (A.bpin 3) node [anchor=south east, rotate=45] () {\tiny \ttfamily opcode[2]};
+        \draw (C.bpin 63) node [anchor=north east] () {\tiny \ttfamily uio[1]};
+        \draw (C.bpin 62) node [anchor=north west] () {\tiny \ttfamily uio[2]};
+        \draw (A.bpin 1) node [anchor=north, rotate=45] () {\tiny \ttfamily ~~~~~opcode[2]};
+        \draw (A.bpin 3) node [anchor=south east, rotate=45] () {\tiny \ttfamily opcode[0]};
         %
         \draw(C.center) ++(3,-2.00) node[](1){\tiny \ttfamily 000: Ripple Carry Adder};
         \draw(1.south west) node[anchor=north west](2){\tiny \ttfamily 001: Carry Lookahead Adder};
