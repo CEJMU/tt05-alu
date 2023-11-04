@@ -27,6 +27,7 @@ architecture rtl of tt_um_cejmu is
     signal wallace_out : std_logic_vector(7 downto 0) := (others => '0');
 
     signal comparator_out: std_logic_vector(7 downto 0);
+    signal barrel_shifter_out: std_logic_vector(7 downto 0);
 
 
 begin
@@ -35,6 +36,7 @@ begin
     uio_out <= (others => '0');
     uio_oe <= "00000000";
     ripple_out(7 downto 5) <= "000";
+    barrel_shifter_out(7 downto 4) <= "0000";
     cla_out(7 downto 5) <= "000";
 
     adder: entity work.ripple_carry(rtl)
@@ -72,11 +74,22 @@ begin
     z => comparator_out
     );
 
+    barrel_shifter: entity work.barrel_shifter(rtl)
+    port map(
+        x => a,
+        y => b(2 downto 0),
+        z => barrel_shifter_out(3 downto 0)
+    );
+
+
+
+
     uo_out <= ripple_out when opcode = "000"
                 else cla_out when opcode = "001"
                 else matrix_out when opcode = "010"
                 else wallace_out when opcode = "011"
                 else comparator_out when opcode = "100"
+                else barrel_shifter_out when opcode = "101"
                 else (others =>'0');
 
 end architecture;
