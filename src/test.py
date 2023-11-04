@@ -126,14 +126,12 @@ async def test_barrel_shifter(dut):
         a = binary[4:]
         b = binary[2:4]
         c = binary[1]
-    
 
         if int(b, base=2) == 0:
             assert (dut.uo_out.value == int(a, base=2))
 
-
-        elif int(c, base=2) == 0 and int(b, base=2) ==1:
-            assert (dut.uo_out.value == int( "0"+ a[:-1] ,base =2))
+        elif int(c, base=2) == 0 and int(b, base=2) == 1:
+            assert (dut.uo_out.value == int("0"+a[:-1], base=2))
 
         elif int(c, base=2) == 0 and int(b, base=2) ==2:
             assert (dut.uo_out.value == int("00"+a[:-2],base =2))
@@ -150,7 +148,3 @@ async def test_barrel_shifter(dut):
 
         elif int(c, base=2) == 1 and int(b, base=2) ==3:
             assert (dut.uo_out.value == (int(a[3:] +"000",base=2)))
-    
-
-        
-       
