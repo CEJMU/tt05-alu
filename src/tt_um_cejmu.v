@@ -56,6 +56,12 @@ module cla(x, y, z);
   wire [3:0] y;
   output [4:0] z;
   wire [4:0] z;
+  assign _18_ = _17_ & 1'h0;
+  assign _19_ = _16_ | _18_;
+  assign _20_ = _15_ & _19_;
+  assign _21_ = _14_ | _20_;
+  assign _22_ = _13_ & _21_;
+  assign _23_ = _12_ | _22_;
   assign _24_ = x[3] & y[3];
   assign _25_ = x[3] ^ y[3];
   assign _26_ = x[2] & y[2];
@@ -98,14 +104,110 @@ module cla(x, y, z);
   assign _15_ = x[1] ^ y[1];
   assign _16_ = x[0] & y[0];
   assign _17_ = x[0] ^ y[0];
-  assign _18_ = _17_ & 1'h0;
-  assign _19_ = _16_ | _18_;
-  assign _20_ = _15_ & _19_;
-  assign _21_ = _14_ | _20_;
-  assign _22_ = _13_ & _21_;
-  assign _23_ = _12_ | _22_;
   assign c = { _39_, _23_, _11_, _03_ };
   assign z = { c[3], _47_, _45_, _43_, _41_ };
+endmodule
+
+module four_bit_comparator(x, y, z);
+  wire _00_;
+  wire _01_;
+  wire _02_;
+  wire _03_;
+  wire _04_;
+  wire _05_;
+  wire _06_;
+  wire _07_;
+  wire _08_;
+  wire _09_;
+  wire _10_;
+  wire _11_;
+  wire _12_;
+  wire _13_;
+  wire _14_;
+  wire _15_;
+  wire _16_;
+  wire _17_;
+  wire equal;
+  wire [3:0] equalv;
+  wire greater;
+  wire [3:0] greaterv;
+  wire \onebitkomparator_1:426 ;
+  wire \onebitkomparator_1:427 ;
+  wire \onebitkomparator_1:428 ;
+  wire \onebitkomparator_2:438 ;
+  wire \onebitkomparator_2:439 ;
+  wire \onebitkomparator_2:440 ;
+  wire \onebitkomparator_3:450 ;
+  wire \onebitkomparator_3:451 ;
+  wire \onebitkomparator_3:452 ;
+  wire \onebitkomparator_4:462 ;
+  wire \onebitkomparator_4:463 ;
+  wire \onebitkomparator_4:464 ;
+  wire smaller;
+  wire [3:0] smallerv;
+  input [3:0] x;
+  wire [3:0] x;
+  input [3:0] y;
+  wire [3:0] y;
+  output [7:0] z;
+  wire [7:0] z;
+  assign _12_ = greaterv[0] | greaterv[1];
+  assign _13_ = _12_ | greaterv[2];
+  assign _14_ = _13_ | greaterv[3];
+  assign _15_ = smallerv[0] | smallerv[1];
+  assign _16_ = _15_ | smallerv[2];
+  assign _17_ = _16_ | smallerv[3];
+  onebitkomparator onebitkomparator_1 (
+    .e(1'h1),
+    .equal(_01_),
+    .greater(_00_),
+    .smaller(_02_),
+    .x0(x[3]),
+    .y0(y[3])
+  );
+  onebitkomparator onebitkomparator_2 (
+    .e(equalv[2]),
+    .equal(_04_),
+    .greater(_03_),
+    .smaller(_05_),
+    .x0(x[2]),
+    .y0(y[2])
+  );
+  onebitkomparator onebitkomparator_3 (
+    .e(equalv[1]),
+    .equal(_07_),
+    .greater(_06_),
+    .smaller(_08_),
+    .x0(x[1]),
+    .y0(y[1])
+  );
+  onebitkomparator onebitkomparator_4 (
+    .e(equalv[0]),
+    .equal(_10_),
+    .greater(_09_),
+    .smaller(_11_),
+    .x0(x[0]),
+    .y0(y[0])
+  );
+  assign greaterv = { \onebitkomparator_1:426 , \onebitkomparator_2:438 , \onebitkomparator_3:450 , \onebitkomparator_4:462  };
+  assign smallerv = { \onebitkomparator_1:428 , \onebitkomparator_2:440 , \onebitkomparator_3:452 , \onebitkomparator_4:464  };
+  assign equalv = { 1'hz, \onebitkomparator_1:427 , \onebitkomparator_2:439 , \onebitkomparator_3:451  };
+  assign greater = _14_;
+  assign smaller = _17_;
+  assign equal = \onebitkomparator_4:463 ;
+  assign \onebitkomparator_1:426  = _00_;
+  assign \onebitkomparator_1:427  = _01_;
+  assign \onebitkomparator_1:428  = _02_;
+  assign \onebitkomparator_2:438  = _03_;
+  assign \onebitkomparator_2:439  = _04_;
+  assign \onebitkomparator_2:440  = _05_;
+  assign \onebitkomparator_3:450  = _06_;
+  assign \onebitkomparator_3:451  = _07_;
+  assign \onebitkomparator_3:452  = _08_;
+  assign \onebitkomparator_4:462  = _09_;
+  assign \onebitkomparator_4:463  = _10_;
+  assign \onebitkomparator_4:464  = _11_;
+  assign z = { 5'h00, equal, smaller, greater };
 endmodule
 
 module full_adder(a, b, ci, s, co);
@@ -248,112 +350,146 @@ module matrix_mul(x, y, z);
   wire [3:0] y;
   output [7:0] z;
   wire [7:0] z;
-  assign _07_ = x[0] & y[0];
-  assign _08_ = x[1] & y[0];
-  assign _09_ = x[2] & y[0];
-  assign _10_ = x[3] & y[0];
-  assign _11_ = x[0] & y[1];
-  assign _12_ = x[1] & y[1];
-  assign _13_ = x[2] & y[1];
-  assign _14_ = x[3] & y[1];
-  assign _23_ = x[0] & y[2];
-  assign _24_ = x[1] & y[2];
-  assign _25_ = x[2] & y[2];
-  assign _26_ = x[3] & y[2];
-  assign _35_ = x[0] & y[3];
-  assign _36_ = x[1] & y[3];
-  assign _37_ = x[2] & y[3];
-  assign _38_ = x[3] & y[3];
+  assign _12_ = x[0] & y[0];
+  assign _13_ = x[1] & y[0];
+  assign _14_ = x[2] & y[0];
+  assign _15_ = x[3] & y[0];
+  assign _16_ = x[0] & y[1];
+  assign _17_ = x[1] & y[1];
+  assign _18_ = x[2] & y[1];
+  assign _19_ = x[3] & y[1];
+  assign _28_ = x[0] & y[2];
+  assign _29_ = x[1] & y[2];
+  assign _30_ = x[2] & y[2];
+  assign _31_ = x[3] & y[2];
+  assign _00_ = x[0] & y[3];
+  assign _01_ = x[1] & y[3];
+  assign _02_ = x[2] & y[3];
+  assign _03_ = x[3] & y[3];
   half_adder stage1_ha1 (
     .a(stage1[1]),
     .b(stage2[0]),
-    .co(_16_),
-    .s(_15_)
+    .co(_21_),
+    .s(_20_)
   );
   half_adder stage1_ha2 (
     .a(stage2[3]),
     .b(stage1_co[2]),
-    .co(_22_),
-    .s(_21_)
+    .co(_27_),
+    .s(_26_)
   );
   full_adder stage1_va1 (
     .a(stage1[2]),
     .b(stage2[1]),
     .ci(stage1_co[0]),
-    .co(_18_),
-    .s(_17_)
+    .co(_23_),
+    .s(_22_)
   );
   full_adder stage1_va2 (
     .a(stage1[3]),
     .b(stage2[2]),
     .ci(stage1_co[1]),
-    .co(_20_),
-    .s(_19_)
+    .co(_25_),
+    .s(_24_)
   );
   half_adder stage2_ha1 (
     .a(stage3[0]),
     .b(stage1_s[0]),
-    .co(_28_),
-    .s(_27_)
+    .co(_33_),
+    .s(_32_)
   );
   full_adder stage2_va1 (
     .a(stage3[1]),
     .b(stage1_s[1]),
     .ci(stage2_co[0]),
-    .co(_30_),
-    .s(_29_)
+    .co(_35_),
+    .s(_34_)
   );
   full_adder stage2_va2 (
     .a(stage3[2]),
     .b(stage1_s[2]),
     .ci(stage2_co[1]),
-    .co(_32_),
-    .s(_31_)
+    .co(_37_),
+    .s(_36_)
   );
   full_adder stage2_va3 (
     .a(stage3[3]),
     .b(stage1_co[3]),
     .ci(stage2_co[2]),
-    .co(_34_),
-    .s(_33_)
+    .co(_39_),
+    .s(_38_)
   );
   half_adder stage3_ha1 (
     .a(stage4[0]),
     .b(stage2_s[0]),
-    .co(_00_),
-    .s(_39_)
+    .co(_05_),
+    .s(_04_)
   );
   full_adder stage3_va1 (
     .a(stage4[1]),
     .b(stage2_s[1]),
     .ci(stage3_co[0]),
-    .co(_02_),
-    .s(_01_)
+    .co(_07_),
+    .s(_06_)
   );
   full_adder stage3_va2 (
     .a(stage4[2]),
     .b(stage2_s[2]),
     .ci(stage3_co[1]),
-    .co(_04_),
-    .s(_03_)
+    .co(_09_),
+    .s(_08_)
   );
   full_adder stage3_va3 (
     .a(stage4[3]),
     .b(stage2_co[3]),
     .ci(stage3_co[2]),
-    .co(_06_),
-    .s(_05_)
+    .co(_11_),
+    .s(_10_)
   );
-  assign stage1 = { _10_, _09_, _08_, _07_ };
-  assign stage2 = { _14_, _13_, _12_, _11_ };
-  assign stage3 = { _26_, _25_, _24_, _23_ };
-  assign stage4 = { _38_, _37_, _36_, _35_ };
-  assign stage1_s = { _21_, _19_, _17_ };
-  assign stage1_co = { _22_, _20_, _18_, _16_ };
-  assign stage2_s = { _33_, _31_, _29_ };
-  assign stage2_co = { _34_, _32_, _30_, _28_ };
-  assign stage3_co = { _04_, _02_, _00_ };
-  assign z = { _06_, _05_, _03_, _01_, _39_, _27_, _15_, stage1[0] };
+  assign stage1 = { _15_, _14_, _13_, _12_ };
+  assign stage2 = { _19_, _18_, _17_, _16_ };
+  assign stage3 = { _31_, _30_, _29_, _28_ };
+  assign stage4 = { _03_, _02_, _01_, _00_ };
+  assign stage1_s = { _26_, _24_, _22_ };
+  assign stage1_co = { _27_, _25_, _23_, _21_ };
+  assign stage2_s = { _38_, _36_, _34_ };
+  assign stage2_co = { _39_, _37_, _35_, _33_ };
+  assign stage3_co = { _09_, _07_, _05_ };
+  assign z = { _11_, _10_, _08_, _06_, _04_, _32_, _20_, stage1[0] };
+endmodule
+
+module onebitkomparator(e, x0, y0, greater, equal, smaller);
+  wire _0_;
+  wire _1_;
+  wire _2_;
+  wire _3_;
+  wire _4_;
+  wire _5_;
+  wire _6_;
+  wire _7_;
+  input e;
+  wire e;
+  output equal;
+  wire equal;
+  output greater;
+  wire greater;
+  output smaller;
+  wire smaller;
+  input x0;
+  wire x0;
+  input y0;
+  wire y0;
+  assign _0_ = ~ y0;
+  assign _1_ = x0 & _0_;
+  assign _2_ = _1_ & e;
+  assign _3_ = x0 ~^ y0;
+  assign _4_ = _3_ & e;
+  assign _5_ = ~ x0;
+  assign _6_ = _5_ & y0;
+  assign _7_ = _6_ & e;
+  assign greater = _2_;
+  assign equal = _4_;
+  assign smaller = _7_;
 endmodule
 
 module ripple_carry(a, b, s);
@@ -408,19 +544,25 @@ module ripple_carry(a, b, s);
 endmodule
 
 module tt_um_cejmu(ui_in, uio_in, ena, clk, rst_n, uo_out, uio_out, uio_oe);
-  wire [4:0] _0_;
-  wire [7:0] _1_;
-  wire [4:0] _2_;
-  wire [7:0] _3_;
-  wire [7:0] _4_;
-  wire _5_;
-  wire [7:0] _6_;
-  wire _7_;
-  wire [7:0] _8_;
-  wire _9_;
+  wire [4:0] _00_;
+  wire _01_;
+  wire [7:0] _02_;
+  wire _03_;
+  wire [7:0] _04_;
+  wire _05_;
+  wire [7:0] _06_;
+  wire [4:0] _07_;
+  wire [7:0] _08_;
+  wire [7:0] _09_;
+  wire [7:0] _10_;
+  wire _11_;
+  wire [7:0] _12_;
+  wire _13_;
+  wire [7:0] _14_;
   wire [7:0] cla_out;
   input clk;
   wire clk;
+  wire [7:0] comparator_out;
   input ena;
   wire ena;
   wire [7:0] matrix_out;
@@ -438,37 +580,47 @@ module tt_um_cejmu(ui_in, uio_in, ena, clk, rst_n, uo_out, uio_out, uio_oe);
   output [7:0] uo_out;
   wire [7:0] uo_out;
   wire [7:0] wallace_out;
-  assign _5_ = uio_in[1:0] == 2'h0;
-  assign _6_ = _5_ ? ripple_out : _8_;
-  assign _7_ = uio_in[1:0] == 2'h1;
-  assign _8_ = _7_ ? cla_out : _1_;
-  assign _9_ = uio_in[1:0] == 2'h2;
-  assign _1_ = _9_ ? matrix_out : wallace_out;
+  assign _11_ = uio_in[2:0] == 3'h0;
+  assign _12_ = _11_ ? ripple_out : _14_;
+  assign _13_ = uio_in[2:0] == 3'h1;
+  assign _14_ = _13_ ? cla_out : _02_;
+  assign _01_ = uio_in[2:0] == 3'h2;
+  assign _02_ = _01_ ? matrix_out : _04_;
+  assign _03_ = uio_in[2:0] == 3'h3;
+  assign _04_ = _03_ ? wallace_out : _06_;
+  assign _05_ = uio_in[2:0] == 3'h4;
+  assign _06_ = _05_ ? comparator_out : 8'h00;
   ripple_carry adder (
     .a(ui_in[3:0]),
     .b(ui_in[7:4]),
-    .s(_0_)
+    .s(_00_)
   );
   cla cla (
     .x(ui_in[3:0]),
     .y(ui_in[7:4]),
-    .z(_2_)
+    .z(_07_)
+  );
+  four_bit_comparator four_bit_comparator (
+    .x(ui_in[3:0]),
+    .y(ui_in[7:4]),
+    .z(_10_)
   );
   matrix_mul matrix (
     .x(ui_in[3:0]),
     .y(ui_in[7:4]),
-    .z(_3_)
+    .z(_08_)
   );
   wallace_tree wallace (
     .x(ui_in[3:0]),
     .y(ui_in[7:4]),
-    .z(_4_)
+    .z(_09_)
   );
-  assign ripple_out = { 3'h0, _0_ };
-  assign cla_out = { 3'h0, _2_ };
-  assign matrix_out = _3_;
-  assign wallace_out = _4_;
-  assign uo_out = _6_;
+  assign ripple_out = { 3'h0, _00_ };
+  assign cla_out = { 3'h0, _07_ };
+  assign matrix_out = _08_;
+  assign wallace_out = _09_;
+  assign comparator_out = _10_;
+  assign uo_out = _12_;
   assign uio_out = 8'h00;
   assign uio_oe = 8'h00;
 endmodule
@@ -507,22 +659,22 @@ module wallace_tree(x, y, z);
   wire _30_;
   wire _31_;
   wire [4:0] _32_;
-  wire \f1:323 ;
-  wire \f1:324 ;
-  wire \f2:332 ;
-  wire \f2:333 ;
-  wire \f3:341 ;
-  wire \f3:342 ;
-  wire \f4:350 ;
-  wire \f4:351 ;
-  wire \f5:359 ;
-  wire \f5:360 ;
-  wire \h1:367 ;
-  wire \h1:368 ;
-  wire \h2:375 ;
-  wire \h2:376 ;
-  wire \h3:383 ;
-  wire \h3:384 ;
+  wire \f1:331 ;
+  wire \f1:332 ;
+  wire \f2:340 ;
+  wire \f2:341 ;
+  wire \f3:349 ;
+  wire \f3:350 ;
+  wire \f4:358 ;
+  wire \f4:359 ;
+  wire \f5:367 ;
+  wire \f5:368 ;
+  wire \h1:375 ;
+  wire \h1:376 ;
+  wire \h2:383 ;
+  wire \h2:384 ;
+  wire \h3:391 ;
+  wire \h3:392 ;
   wire [3:0] stage_1;
   wire [3:0] stage_2;
   wire [3:0] stage_3;
@@ -615,25 +767,25 @@ module wallace_tree(x, y, z);
   assign stage_2 = { _07_, _06_, _05_, _04_ };
   assign stage_3 = { _11_, _10_, _09_, _08_ };
   assign stage_4 = { _15_, _14_, _13_, _12_ };
-  assign stage_5 = { \h2:376 , \h2:375 , \f2:333 , \f2:332 , \f1:324 , \f1:323 , \h1:368 , \h1:367  };
-  assign stage_6 = { stage_4[3], \f5:360 , \f5:359 , \f4:351 , \f4:350 , \f3:342 , \f3:341 , \h3:384  };
+  assign stage_5 = { \h2:384 , \h2:383 , \f2:341 , \f2:340 , \f1:332 , \f1:331 , \h1:376 , \h1:375  };
+  assign stage_6 = { stage_4[3], \f5:368 , \f5:367 , \f4:359 , \f4:358 , \f3:350 , \f3:349 , \h3:392  };
   assign vec_1 = { stage_6[7], stage_6[5], stage_6[3], stage_6[1] };
   assign vec_2 = { stage_6[6], stage_6[4], stage_6[2], stage_6[0] };
-  assign \f1:323  = _16_;
-  assign \f1:324  = _17_;
-  assign \f2:332  = _18_;
-  assign \f2:333  = _19_;
-  assign \f3:341  = _20_;
-  assign \f3:342  = _21_;
-  assign \f4:350  = _22_;
-  assign \f4:351  = _23_;
-  assign \f5:359  = _24_;
-  assign \f5:360  = _25_;
-  assign \h1:367  = _26_;
-  assign \h1:368  = _27_;
-  assign \h2:375  = _28_;
-  assign \h2:376  = _29_;
-  assign \h3:383  = _30_;
-  assign \h3:384  = _31_;
-  assign z = { _32_, \h3:383 , stage_5[0], stage_1[0] };
+  assign \f1:331  = _16_;
+  assign \f1:332  = _17_;
+  assign \f2:340  = _18_;
+  assign \f2:341  = _19_;
+  assign \f3:349  = _20_;
+  assign \f3:350  = _21_;
+  assign \f4:358  = _22_;
+  assign \f4:359  = _23_;
+  assign \f5:367  = _24_;
+  assign \f5:368  = _25_;
+  assign \h1:375  = _26_;
+  assign \h1:376  = _27_;
+  assign \h2:383  = _28_;
+  assign \h2:384  = _29_;
+  assign \h3:391  = _30_;
+  assign \h3:392  = _31_;
+  assign z = { _32_, \h3:391 , stage_5[0], stage_1[0] };
 endmodule

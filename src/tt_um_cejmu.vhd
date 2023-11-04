@@ -19,12 +19,14 @@ architecture rtl of tt_um_cejmu is
     alias a : std_logic_vector(3 downto 0) is ui_in(3 downto 0);
     alias b : std_logic_vector(3 downto 0) is ui_in(7 downto 4);
 
-    alias opcode : std_logic_vector(1 downto 0) is uio_in(1 downto 0);
+    alias opcode : std_logic_vector(2 downto 0) is uio_in(2 downto 0);
 
     signal ripple_out : std_logic_vector(7 downto 0) := (others => '0');
     signal cla_out : std_logic_vector(7 downto 0) := (others => '0');
     signal matrix_out : std_logic_vector(7 downto 0) := (others => '0');
     signal wallace_out : std_logic_vector(7 downto 0) := (others => '0');
+
+    signal comparator_out: std_logic_vector(7 downto 0);
 
 
 begin
@@ -63,12 +65,18 @@ begin
         z => wallace_out
     );
 
-    --cla_out(4 downto 0) <= std_logic_vector(Unsigned('0' & a) + Unsigned('0' & b));
+    four_bit_comparator: entity work.four_bit_comparator(rtl)
+    port map(
+    x => a,
+    y => b,
+    z => comparator_out
+    );
 
-
-    uo_out <= ripple_out when opcode = "00"
-                else cla_out when opcode = "01"
-                else matrix_out when opcode = "10"
-                else wallace_out;
+    uo_out <= ripple_out when opcode = "000"
+                else cla_out when opcode = "001"
+                else matrix_out when opcode = "010"
+                else wallace_out when opcode = "011"
+                else comparator_out when opcode = "100"
+                else (others =>'0');
 
 end architecture;

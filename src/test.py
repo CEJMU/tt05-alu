@@ -81,3 +81,30 @@ async def test_wallace(dut):
         b = binary[0:4]
         mul = int(a, base=2) * int(b, base=2)
         assert (dut.uo_out.value == mul)
+
+@cocotb.test()
+async def test_comparator(dut):
+    dut._log.info("start comparator test")
+    clock = Clock(dut.clk, 10, units="us")
+    cocotb.start_soon(clock.start())
+
+    dut._log.info("Testing Compare")
+    dut.uio_in.value = 4
+    for i in range(256):
+        dut._log.info(f"Testing input {i}")
+        dut.ui_in.value = i
+        await ClockCycles(dut.clk, 1)
+        binary = bin(i)[2:].zfill(8)
+        a = binary[4:]
+        b = binary[0:4]
+
+        
+        #dut._log.info(dut.uo.value)
+
+
+        if int(a, base=2) > int(b, base=2):
+            assert (dut.uo_out.value == 1)
+        elif int(a, base=2) < int(b, base=2):
+            assert (dut.uo_out.value == 2)
+        elif int(a, base=2) == int(b, base=2):
+            assert (dut.uo_out.value == 4)
