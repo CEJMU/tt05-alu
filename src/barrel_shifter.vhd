@@ -17,7 +17,7 @@ architecture rtl of barrel_shifter is
     
     COMPONENT multiplexer IS
         port (
-            a  : in STD_LOGIC_VECTOR(7 downto 0);
+            a  : in STD_LOGIC_VECTOR(6 downto 0);
             s0 : in STD_LOGIC;
             s1 : in STD_LOGIC;
             d  : in STD_LOGIC;
@@ -25,18 +25,18 @@ architecture rtl of barrel_shifter is
         );
     end component multiplexer;
     
-    signal mul0v : STD_LOGIC_VECTOR(7 downto 0);
-    signal mul1v : STD_LOGIC_VECTOR(7 downto 0);
-    signal mul2v : STD_LOGIC_VECTOR(7 downto 0);
-    signal mul3v : STD_LOGIC_VECTOR(7 downto 0);
+    signal mul0v : STD_LOGIC_VECTOR(6 downto 0);
+    signal mul1v : STD_LOGIC_VECTOR(6 downto 0);
+    signal mul2v : STD_LOGIC_VECTOR(6 downto 0);
+    signal mul3v : STD_LOGIC_VECTOR(6 downto 0);
 
     
 begin
     
-    mul0v <= "000" & x(0) & x(3) & x(2) & x(1) & x(0);
-    mul1v <= "00"& x(0) & x(1) & '0' & x(3) & x(2) & x(1); 
-    mul2v <= '0' & x(0) & x(1) & x(2) & "00" & x(3) & x(2);
-    mul3v <= x(0) & x(1) & x(2) & x(3) & "000" & x(3);
+    mul0v <= "000" & x(3) & x(2) & x(1) & x(0);
+    mul1v <= "00"& x(0) & '0' & x(3) & x(2) & x(1); 
+    mul2v <= '0' & x(0) & x(1) & "00" & x(3) & x(2);
+    mul3v <= x(0) & x(1) & x(2) & "000" & x(3);
     
 
     
